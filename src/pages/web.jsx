@@ -12,20 +12,22 @@ function Web() {
       title: 'OmniBook',
       description: 'A comprehensive book management application.',
       image: omnibook,
-      tags: ['PHP', 'Javascript', 'MySQL']
+      tags: ['PHP', 'Javascript', 'MySQL'],
+      link: 'https://library.servbase.site' 
     },
     {
       title: 'IMS',
       description: 'Inventory management system for handling large datasets.',
       image: ims,
-      tags: ['PHP', 'Javascript', 'MySQL']
+      tags: ['PHP', 'Javascript', 'MySQL'],
+      link: 'COMING SOON' 
     },
     {
       title: 'Scholarship',
       description: 'A platform for managing and distributing scholarship opportunities.',
       image: scholship,
-      tags: ['PHP', 'Javascript', 'MySQL']
-
+      tags: ['PHP', 'Javascript', 'MySQL'],
+      link: 'https://scholarship.servbase.site/' 
     }
   ];
 
@@ -38,6 +40,8 @@ function Web() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {webProjects.map((project, index) => (
             <div key={index} className="project bg-white border border-slate-200 p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+              
+              {/* Upper Section */}
               <div>
                 {/* Added cursor-zoom-in and onClick handler */}
                 <div 
@@ -60,8 +64,30 @@ function Web() {
                 </div>
 
                 <h2 className="text-xl font-bold text-black mb-1">{project.title}</h2>
-                <p className="text-slate-600 text-sm leading-relaxed">{project.description}</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-4">{project.description}</p>
               </div>
+
+              {/* Lower Section: Action Link / Coming Soon */}
+              {project.link && project.link !== '#' && (
+                <div className="mt-4 pt-4 border-t border-slate-100">
+                  {project.link === 'COMING SOON' ? (
+                    <span className="inline-flex items-center text-sm font-semibold text-slate-400 cursor-not-allowed select-none">
+                      Coming Soon
+                    </span>
+                  ) : (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-200 group/link"
+                    >
+                      Visit Site 
+                      <span className="ml-1 transform group-hover/link:translate-x-1 transition-transform duration-200">&rarr;</span>
+                    </a>
+                  )}
+                </div>
+              )}
+
             </div>
           ))}
         </div>
