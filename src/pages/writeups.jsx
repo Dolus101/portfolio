@@ -100,7 +100,7 @@ function Writeups() {
       </div>
 
       <footer className="w-full py-6 text-center text-sm text-gray-500 border-t border-gray-100 dark:border-gray-800 dark:text-gray-400">
-      <p>&copy; {currentYear} YourCompany Inc. All rights reserved.</p>
+      <p>&copy; {currentYear} Made by react JS and tailwind. All rights reserved.</p>
     </footer>
     </>
   );
