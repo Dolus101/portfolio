@@ -38,12 +38,12 @@ function Writeups() {
       image: '/src/assets/certs/CLLMSE.jpg',
     },
     {
-      title: 'Certified API Security Practitioner (CAP)',
+      title: 'Certified AppSec Practitioner (CAP)',
       issuer: 'PentestingExams.com',
       image: '/src/assets/certs/CAP.png',
     },
     {
-      title: 'Certified Azure Penetration Tester (CAPen)',
+      title: 'Certified AppSec Penetration (CAPen)',
       issuer: 'PentestingExams.com',
       image: '/src/assets/certs/CAPen.jpg',
     },
