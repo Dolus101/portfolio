@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 
+// Import your certificate assets
+import CNSP from '../assets/CNSP.png';
+import CLLMSE from '../assets/CLLMSE.jpg';
+import CAP from '../assets/CAP.png';
+import CAPen from '../assets/CAPen.jpg';
+
 function Writeups() {
-  const [selectedImg, setSelectedImg] = useState(null);
+  const [zoomedImage, setZoomedImage] = useState(null);
 
   // Your Medium write-up data array
   const articles = [
@@ -25,27 +31,31 @@ function Writeups() {
     }
   ];
 
-  // Your Cybersecurity Certificates Data updated with actual details
+  // Cybersecurity Certificates Data matching your assets
   const certificates = [
     {
-      title: 'Certified Network Security Practitioner (CNSP)',
+      title: 'Certified Network Security Practitioner',
       issuer: 'PentestingExams.com',
-      image: '/src/assets/CNSP.png', 
+      image: CNSP,
+      tags: ['CNSP', 'Network Security']
     },
     {
-      title: 'Certified LLM Security Expert (CLLMSE)',
+      title: 'Certified LLM Security Expert',
       issuer: 'Red Team Leaders',
-      image: '/src/assets/CLLMSE.jpg',
+      image: CLLMSE,
+      tags: ['CLLMSE', 'AI Security']
     },
     {
-      title: 'Certified AppSec Practitioner (CAP)',
+      title: 'Certified AppSec Practitioner',
       issuer: 'PentestingExams.com',
-      image: '/src/assets/CAP.png',
+      image: CAP,
+      tags: ['CAP', 'Web Security']
     },
     {
-      title: 'Certified AppSec Penetration (CAPen)',
+      title: 'Certified AppSec Penetration',
       issuer: 'PentestingExams.com',
-      image: '/src/assets/CAPen.jpg',
+      image: CAPen,
+      tags: ['CAPen', 'Web Security']
     },
   ];
 
@@ -53,11 +63,10 @@ function Writeups() {
 
   return (
     <>
-      {/* Container with teal-950 background */}
       <div id="writeups" className="w-full min-h-screen bg-teal-950 px-4 py-16 text-slate-100 flex flex-col justify-center">
         <div className="max-w-6xl mx-auto w-full space-y-20">
           
-          {/* Section 1: Write-ups Header */}
+          {/* Section 1: Technical Write-ups */}
           <div>
             <div className="mb-12 text-center md:text-left">
               <h2 className="text-3xl font-bold tracking-tight text-white mb-2 flex items-center justify-center md:justify-start gap-2">
@@ -68,7 +77,6 @@ function Writeups() {
               </p>
             </div>
 
-            {/* Write-ups Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {articles.map((article, index) => (
                 <div 
@@ -76,7 +84,6 @@ function Writeups() {
                   className="group flex flex-col justify-between bg-teal-900/40 border border-teal-800/60 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-teal-400/50 hover:shadow-[0_4px_20px_rgba(45,212,191,0.15)]"
                 >
                   <div>
-                    {/* Tech Tags */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {article.tags.map((tag, tagIndex) => (
                         <span 
@@ -88,18 +95,15 @@ function Writeups() {
                       ))}
                     </div>
 
-                    {/* Title */}
                     <h3 className="text-xl font-bold text-white mb-2 transition-colors duration-200 group-hover:text-teal-300">
                       {article.title}
                     </h3>
 
-                    {/* Description */}
                     <p className="text-teal-100/70 text-sm leading-relaxed mb-6">
                       {article.description}
                     </p>
                   </div>
 
-                  {/* Action Link */}
                   <a 
                     href={article.mediumUrl} 
                     target="_blank" 
@@ -122,7 +126,7 @@ function Writeups() {
             </div>
           </div>
 
-          {/* Section 2: Cybersecurity Certificates PNG Showcase */}
+          {/* Section 2: Cybersecurity Certificates */}
           <div>
             <div className="mb-12 text-center md:text-left">
               <h2 className="text-3xl font-bold tracking-tight text-white mb-2 flex items-center justify-center md:justify-start gap-2">
@@ -133,28 +137,36 @@ function Writeups() {
               </p>
             </div>
 
-            {/* PNG Image Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {certificates.map((cert, index) => (
-                <div
-                  key={index}
-                  onClick={() => setSelectedImg(cert.image)}
-                  className="group cursor-pointer flex flex-col justify-between overflow-hidden rounded-xl border border-teal-800/60 bg-teal-900/30 p-3 transition-all duration-300 hover:-translate-y-1 hover:border-teal-400/60 hover:shadow-[0_4px_20px_rgba(45,212,191,0.2)]"
+                <div 
+                  key={index} 
+                  className="bg-teal-900/30 border border-teal-800/60 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-teal-400/50 transition-all duration-300 flex flex-col justify-between"
                 >
-                  <div className="aspect-[16/10] w-full overflow-hidden rounded-lg bg-teal-950/80 p-1 border border-teal-800/40 flex items-center justify-center">
-                    <img 
-                      src={cert.image} 
-                      alt={cert.title} 
-                      className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="mt-3 px-1 pb-1">
-                    <span className="text-[10px] font-semibold text-teal-400/80 uppercase tracking-wider block mb-0.5">
-                      {cert.issuer}
-                    </span>
-                    <h3 className="text-xs font-bold text-teal-100 group-hover:text-teal-300 transition-colors duration-200 line-clamp-2">
-                      {cert.title}
-                    </h3>
+                  <div>
+                    {/* Zoomable Image Box matching Mobile.jsx */}
+                    <div 
+                      className="w-full h-40 bg-teal-950/80 rounded overflow-hidden flex items-center justify-center p-2 border border-teal-800/40 cursor-zoom-in group"
+                      onClick={() => setZoomedImage(cert.image)}
+                    >
+                      <img 
+                        src={cert.image} 
+                        alt={cert.title} 
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200" 
+                      />
+                    </div>
+                    
+                    {/* Category Tags */}
+                    <div className="flex flex-wrap gap-1.5 mt-4 mb-2">
+                      {cert.tags.map((tag, tagIndex) => (
+                        <span key={tagIndex} className="px-2 py-0.5 text-[10px] font-bold rounded bg-teal-500/10 text-teal-300 border border-teal-500/20 tracking-wider uppercase">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <h3 className="text-base font-bold text-white mb-1">{cert.title}</h3>
+                    <p className="text-teal-200/70 text-xs leading-relaxed">{cert.issuer}</p>
                   </div>
                 </div>
               ))}
@@ -164,24 +176,24 @@ function Writeups() {
         </div>
       </div>
 
-      {/* Fullscreen Image Preview Modal */}
-      {selectedImg && (
+      {/* Lightbox / Zoom Overlay (Identical to Mobile.jsx) */}
+      {zoomedImage && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-          onClick={() => setSelectedImg(null)}
+          className="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4 cursor-zoom-out"
+          onClick={() => setZoomedImage(null)}
         >
-          <div className="relative max-w-4xl w-full bg-teal-950 border border-teal-800 rounded-xl p-3 shadow-2xl">
-            <button 
-              onClick={() => setSelectedImg(null)}
-              className="absolute -top-10 right-0 text-slate-300 hover:text-white text-sm font-semibold"
-            >
-              Close ✕
-            </button>
+          <div className="relative max-w-5xl max-h-[85vh] w-full h-full flex items-center justify-center">
             <img 
-              src={selectedImg} 
-              alt="Certificate Full View" 
-              className="w-full h-auto rounded-lg object-contain max-h-[85vh]"
+              src={zoomedImage} 
+              alt="Zoomed certificate view" 
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
             />
+            <button 
+              className="absolute top-4 right-4 text-white/70 hover:text-white text-3xl font-bold bg-black/40 w-10 h-10 rounded-full flex items-center justify-center"
+              onClick={() => setZoomedImage(null)}
+            >
+              &times;
+            </button>
           </div>
         </div>
       )}
