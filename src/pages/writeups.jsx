@@ -30,22 +30,22 @@ function Writeups() {
     {
       title: 'Certified Network Security Practitioner (CNSP)',
       issuer: 'PentestingExams.com',
-      image: '/src/assets/certs/CNSP.png', 
+      image: '/src/assets/CNSP.png', 
     },
     {
       title: 'Certified LLM Security Expert (CLLMSE)',
       issuer: 'Red Team Leaders',
-      image: '/src/assets/certs/CLLMSE.jpg',
+      image: '/src/assets/CLLMSE.jpg',
     },
     {
       title: 'Certified AppSec Practitioner (CAP)',
       issuer: 'PentestingExams.com',
-      image: '/src/assets/certs/CAP.png',
+      image: '/src/assets/CAP.png',
     },
     {
       title: 'Certified AppSec Penetration (CAPen)',
       issuer: 'PentestingExams.com',
-      image: '/src/assets/certs/CAPen.jpg',
+      image: '/src/assets/CAPen.jpg',
     },
   ];
 
