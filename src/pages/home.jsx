@@ -1,6 +1,6 @@
-import Navbar from "../Components/navbar";
-import Footer from "../Components/footer";
-import { gmailLink } from "../Components/shared";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import { gmailLink } from "../components/shared";
 import Web from "./web";
 import Mobile from "./mobile";
 import Writeups from "./writeups";
