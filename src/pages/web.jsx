@@ -2,7 +2,7 @@ import { useState } from "react";
 import omnibook from "../assets/OmniBook.png";
 import ims from "../assets/IMSandDA.png";
 import scholship from "../assets/scholarship.png";
-import { SectionHeading, ProjectCard, Lightbox } from "../Components/shared";
+import { SectionHeading, ProjectCard, Lightbox } from "../components/shared";
 
 const webProjects = [
   {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import OmniMobile from "../assets/OmniMobile.jpg";
 import Flexi from "../assets/Flexi.jpg";
-import { ProjectCard, Lightbox } from "../Components/shared";
+import { ProjectCard, Lightbox } from "../components/shared";
 
 const mobileProjects = [
   {

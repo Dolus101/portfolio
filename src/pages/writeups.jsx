@@ -3,7 +3,7 @@ import CNSP from "../assets/CNSP.png";
 import CLLMSE from "../assets/CLLMSE.jpg";
 import CAP from "../assets/CAP.png";
 import CAPen from "../assets/CAPen.jpg";
-import { SectionHeading, Tags, Lightbox } from "../Components/shared";
+import { SectionHeading, Tags, Lightbox } from "../components/shared";
 
 const articles = [
   {
