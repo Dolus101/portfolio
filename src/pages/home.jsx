@@ -1,89 +1,109 @@
-import Navbar from '../Components/navbar'
-import Web from './web'
-import Mobile from './mobile'
-import Writeups from './writeups'
-import profileImg from '../assets/profile.png'
+import Navbar from "../components/navbar";
+import Footer from "../Components/footer";
+import { gmailLink } from "../Components/shared";
+import Web from "./web";
+import Mobile from "./mobile";
+import Writeups from "./writeups";
+
+const skills = ["PHP", "Laravel", "MySQL", "JavaScript", "HTML5", "CSS3", "React", "React Native", "Git", "Linux", "Web Security & Analysis"];
+
+const terminalLines = [
+  { type: "cmd", text: "whoami" },
+  { type: "out", text: "full-stack dev + security researcher" },
+  { type: "cmd", text: "stack --list", gap: true },
+  { type: "out", text: "php · laravel · mysql · javascript · react" },
+  { type: "cmd", text: "bounty --list", gap: true },
+  { type: "ok", text: "✓ open redirect       $100" },
+  { type: "ok", text: "✓ open redirect → xss $500" },
+  { type: "ok", text: "✓ host header inj.    reported" },
+];
 
 function Home() {
-  const myEmail = "nicoledizon115@gmail.com";
-  const subject = encodeURIComponent("Project Inquiry / Collaboration");
-  const body = encodeURIComponent("Hi Nicole,\n\nI saw your portfolio and wanted to reach out regarding...");
-
-  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${myEmail}&su=${subject}&body=${body}`;
-
   return (
     <>
       <Navbar />
 
-      {/* Hero Section - Removed vertical padding from parent to ground the image */}
-      <div id="about" className="w-full bg-teal-900 px-6 text-white flex items-center overflow-hidden">
-        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="hero section-shell" id="about">
+        <div className="hero-copy">
+          <p className="eyebrow"><span className="status-dot" /> AVAILABLE FOR OPPORTUNITIES</p>
+          <h1>Building for the web.<br /><span>Thinking about security.</span></h1>
+          <p className="hero-subtitle">Nicole Franz Dizon · Web Developer | Cybersecurity Enthusiast</p>
+          <p className="hero-description">
+            Full-Stack Web Developer passionate about building secure, responsive, and scalable web applications.
+            I enjoy solving complex problems and writing clean, maintainable code using PHP, Laravel, MySQL, and JavaScript.
+          </p>
+          <div className="hero-actions">
+            <a className="button button-primary" href={gmailLink} target="_blank" rel="noopener noreferrer">Get in touch <span>↗</span></a>
+            <a className="button button-secondary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">View resume</a>
+          </div>
+          <div className="social-links">
+            <a href="https://github.com/Dolus101" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/nicole-franz-dizon-20a028252/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="https://gembie.medium.com" target="_blank" rel="noreferrer">Medium ↗</a>
+          </div>
+        </div>
 
-          {/* Info Section - Added top padding here to keep layout clean */}
-          <div className="flex flex-col space-y-4 text-center md:text-left pt-12 pb-8 md:pt-16 md:pb-16">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Nicole Franz Dizon
-            </h1>
-            <h2 className="text-lg md:text-xl font-semibold tracking-wide">
-              <u>Web Developer | Cybersecurity Enthusiast</u>
-            </h2>
-            <p className="text-teal-100/80 text-base md:text-lg leading-relaxed max-w-xl">
-              Full-Stack Web Developer passionate about building secure, responsive, and scalable web applications. I enjoy solving complex problems 
-              and writing clean, maintainable code using PHP, Laravel, MySQL, and JavaScript.
-            </p>
-
-            {/* Contact Buttons */}
-            <div className="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
-              <a
-                href={gmailLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded transition-colors duration-200"
-              >
-                Get in touch
-              </a>
-
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded transition-colors duration-200"
-              >
-                View Resume
-              </a>
+        <div className="hero-visual" aria-label="Terminal card">
+          <div className="terminal">
+            <div className="terminal-bar">
+              <span className="t-dot" /><span className="t-dot" /><span className="t-dot t-dot-accent" />
+              <span className="terminal-title">nicole@portfolio ~</span>
+            </div>
+            <div className="terminal-body">
+              {terminalLines.map((line, i) => (
+                <div key={i} className={line.gap ? "t-gap" : ""}>
+                  {line.type === "cmd" && <span><b>$</b> {line.text}</span>}
+                  {line.type === "out" && <span className="t-muted">{line.text}</span>}
+                  {line.type === "ok" && <span className="t-ok">{line.text}</span>}
+                </div>
+              ))}
+              <div className="t-gap"><b>$</b> <span className="t-cursor" /></div>
             </div>
           </div>
-
-          {/* Profile Image Section - Forced flush to the bottom using self-end */}
-          <div className="flex justify-center md:justify-end order-first md:order-last self-end pt-8 md:pt-0">
-            <img
-              src={profileImg}
-              alt="Profile"
-              className="max-w-[280px] md:max-w-[340px] h-auto object-contain block vertical-align-bottom"
-            />
-          </div>
-
+          <div className="floating-note note-top"><span>01 /</span> Build with purpose</div>
+          <div className="floating-note note-bottom"><span>02 /</span> Secure by design</div>
         </div>
-      </div>
+      </section>
 
-      {/* Web Project Section */}
+      <section className="intro-strip">
+        <div className="section-shell intro-grid">
+          <p>MY FOCUS</p>
+          <span>Full-stack development</span>
+          <span>Mobile applications</span>
+          <span>Cybersecurity research</span>
+        </div>
+      </section>
+
       <Web />
-
-      {/* Section Divider */}
-      <div className="max-w-6xl mx-auto px-6">
-        <hr className="border-t border-teal-800" />
-      </div>
-
-      {/* Mobile Project Section */}
       <Mobile />
 
-      {/* Section Divider */}
-      <div className="max-w-6xl mx-auto px-6">
-        <hr className="border-t border-teal-800" />
-      </div>
+      <section className="toolkit-section" id="skills">
+        <div className="section-shell toolkit-layout">
+          <div className="toolkit-intro">
+            <p className="toolkit-eyebrow">TOOLKIT / 02</p>
+            <h2>Technologies I work with.</h2>
+            <p className="toolkit-desc">
+              Tools, frameworks, and core technical skills leveraged across full-stack web development and cybersecurity experiments.
+            </p>
+          </div>
+          <div className="toolkit-grid">
+            {skills.map((skill, i) => {
+              const isLast = i === skills.length - 1;
+              const wide = isLast && skills.length % 2 === 1;
+              return (
+                <div className={`toolkit-item${wide ? " toolkit-item-wide" : ""}`} key={skill}>
+                  <span className="toolkit-index">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="toolkit-name">{skill}</span>
+                  <span className="toolkit-arrow">↗</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-      {/* Writeups Section */}
       <Writeups />
+      <Footer />
     </>
   );
 }
