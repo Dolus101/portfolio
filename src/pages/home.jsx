@@ -1,4 +1,4 @@
-import Navbar from "../components/navbar";
+import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import { gmailLink } from "../Components/shared";
 import Web from "./web";
