@@ -10,7 +10,7 @@ const webProjects = [
     description: "A comprehensive book management application.",
     image: omnibook,
     tags: ["PHP", "Javascript", "MySQL"],
-    link: "https://library.servbase.site",
+    link: "COMING SOON",
   },
   {
     title: "IMS",
@@ -24,7 +24,7 @@ const webProjects = [
     description: "A platform for managing and distributing scholarship opportunities.",
     image: scholship,
     tags: ["PHP", "Javascript", "MySQL"],
-    link: "https://scholarship.servbase.site/",
+    link: "COMING SOON",
   },
 ];
 
